@@ -14,35 +14,35 @@
  
 :root {
     /* Background gradient variables*/
---header-top:#273247;
---header-bottom:#061f31;
---panel-top: #29313d;
---panel-bottom: #30323e;
---panel-shadow:#012749;
---main-background-top: #dbdbd6;
---main-background-bottom: #dbdbd6;
+--header-top:#472727;
+--header-bottom:#310606;
+--panel-top: #3d2929;
+--panel-bottom: #3e3030;
+--panel-shadow:#490101;
+--main-background-top: #dbd6d6;
+--main-background-bottom: #dbd6d6;
     /*Generic borders*/
---dark-border: #011a49;
---light-border: #6d6d66;
+--dark-border: #490101;
+--light-border: #6d6666;
 --element-border-radius: 2px;
     /*Search*/
---search-button: linear-gradient(to bottom, #49659b,#011a49,#011a49);
---search-button-hover: linear-gradient(to bottom, #49659b,#033694,#032a74);
---search-input-color: #203c5f;
---search-input-hover: #17487e;
+--search-button: linear-gradient(to bottom, #9b4949,#490101,#490101);
+--search-button-hover: linear-gradient(to bottom, #9b4949,#940303,#740303);
+--search-input-color: #5f2020;
+--search-input-hover: #7e1717;
     /*Menu with dropdown*/
 --dropdown-background: #e3e3e3;
 --panel-link-hover: white;
---panel-background-highlight: #011a49;
+--panel-background-highlight: #490101;
 --dropdown-text-color: #262626;
     /*Rating widget*/
---rating-background: #2560a8;
+--rating-background: #a82525;
 --rating-cancel-color: white;
  
---text-header-color: #2766bb ;
---highlight-color: #5192e1;
---highlight-hover: #84b7f5;
---create-page: #394175;
+--text-header-color: #bb2727 ;
+--highlight-color: #e15151;
+--highlight-hover: #f58484;
+--create-page: #753939;
 --highlight-shadow: #011a4973;
  
     /*Forum*/
