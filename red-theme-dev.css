@@ -1,0 +1,1660 @@
+/*
+    Nova Corporation
+    [2019 Wikidot Theme]
+    Heavily inspired by Vizlox's official RPC theme, based on code from “Supremacy” created by James Pitchford and “RPC Authority Dark Theme” Style created by Bobby The Evil.
+*/
+ 
+@charset "utf-8";
+ 
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+@import url('https://fonts.googleapis.com/css?family=Michroma');
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+@import url('http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css');
+@import url('http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+ 
+:root {
+    /* Background gradient variables*/
+--header-top:#273247;
+--header-bottom:#061f31;
+--panel-top: #29313d;
+--panel-bottom: #30323e;
+--panel-shadow:#012749;
+--main-background-top: #dbdbd6;
+--main-background-bottom: #dbdbd6;
+    /*Generic borders*/
+--dark-border: #011a49;
+--light-border: #6d6d66;
+--element-border-radius: 2px;
+    /*Search*/
+--search-button: linear-gradient(to bottom, #49659b,#011a49,#011a49);
+--search-button-hover: linear-gradient(to bottom, #49659b,#033694,#032a74);
+--search-input-color: #203c5f;
+--search-input-hover: #17487e;
+    /*Menu with dropdown*/
+--dropdown-background: #e3e3e3;
+--panel-link-hover: white;
+--panel-background-highlight: #011a49;
+--dropdown-text-color: #262626;
+    /*Rating widget*/
+--rating-background: #2560a8;
+--rating-cancel-color: white;
+ 
+--text-header-color: #2766bb ;
+--highlight-color: #5192e1;
+--highlight-hover: #84b7f5;
+--create-page: #394175;
+--highlight-shadow: #011a4973;
+ 
+    /*Forum*/
+ --post-head-color: #221d1d!important;
+ --forum-border: #666!important;
+ --forum-background: #221d1d!important;
+ --forum-entry-background: #221d1d!important;
+ 
+    /*Tabs*/
+--selected-tab: black;
+--hover-tab: lightgray;
+--inactive-tab: white;
+ 
+    /*Turn off PNGs*/
+--container-wrap: none;
+}
+
+.hl-code,
+.hl-identifier,
+.hl-brackets{
+    color: #c0c0c0
+}
+ #side-bar .side-block {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent !important;
+  padding: 0;
+  padding-right: calc(8.1em - 1px);
+  margin-left: 0em;
+  margin-right: -8.5em;
+}
+ 
+#side-bar .heading {
+  border: none;
+  border-radius: 0;
+  font-size: 1.2em;
+  padding: 0.5em 1em 0 -0;
+  margin: 1em calc(-1em + 2px) 0.5em 0;
+  font-weight: bold;
+  text-decoration: none;
+  border-top: 1px solid #ccc;
+  color: #bb4a27;
+  border-color: #bbb;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+}
+ 
+#side-bar div.menu-item {
+  margin: 0;
+  font-size: 0;
+}
+ 
+#side-bar div.menu-item a {
+  font-weight: normal;
+  color: #bbb;
+}
+ 
+#side-bar .menu-item>img {
+  display: none;
+}
+ 
+#side-bar .menu-item>a {
+  transition: all 0.1s ease-in-out;
+  display: block;
+  color: #444;
+  margin: 0 calc(-1em - 1px) 0 -0.5em;
+  padding: 0.4em 1em 0.4em 0.5em;
+  font-size: 12.8px;
+}
+ 
+#side-bar .menu-item>a:hover {
+  background-color: #441919;
+  color: #f3f3f3;
+  text-decoration: none;
+}
+ 
+#main-content {
+  margin: 0 2em 0 21em;
+  padding: 2em 2em calc(14em - 1px) 3em;
+}
+ 
+#side-bar .menu-item>a[href*="/object-series"]::after {
+  font-size: 80%;
+  opacity: 0.7;
+  margin-left: 0.5em;
+}
+ 
+#side-bar .menu-item>a[href="/object-series"]::after {
+  content: "(001–999)";
+}
+
+li, p {
+    line-height: 141%;
+}
+a {
+    color: var(--highlight-color);
+    text-decoration: none;
+    background: transparent;
+    transition: color 0.5s ease;
+}
+a.newpage {
+    color: var(--create-page);
+    text-decoration: none;
+    background: transparent;
+ 
+}
+a:hover {
+    text-decoration: underline;
+    background-color: transparent;
+    color: var(--highlight-hover)
+}
+ 
+.form-control {
+width: 95%;
+}
+ 
+/* GLOBAL WIDTH */
+#header, #top-bar {
+    width: 90%;
+    max-width: 980px;
+    margin: 0 auto;
+}
+ 
+#top-bar {
+    width: 100%;
+    margin: 0 auto;
+}
+ 
+.mobile-top-bar {
+    display: none;
+    position: absolute;
+    left: 1em;
+    bottom: 0px;
+    z-index: 0;
+}
+ 
+/* HEADER */
+#header {
+    height: 140px;
+    position: relative;
+    z-index: 10;
+    padding-bottom: 26px; /* FOR MENU */
+    padding-left: 30px;
+    background: url(http://nova-corporation.wdfiles.com/local--files/home%3Ahome/nova%20corporation%20logo%20140x140.png) 5px 22px no-repeat;
+}
+#search-top-box {
+    position: absolute;
+    top: 79px;
+    right: 9px;
+    width: 250px;
+    text-align: right;
+}
+#search-top-box-input {
+    transition: background-color 0.5s ease;
+    border: solid 1px #999;
+    border-radius: 0;
+    color: #ccc;
+    background-color: var(--search-input-color);
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,.5);
+}
+#search-top-box-input:hover,
+#search-top-box-input:focus {
+    border: solid 1px #fff;
+    color: #fff;
+    background-color: var(--search-input-hover);
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,.8);
+}
+#search-top-box-form input[type=submit] {
+    transition: background,border,color 0.5s ease;
+    border: solid 1px #999;
+    border-radius: 0;
+    padding: 2px 5px;
+    font-size: 90%;
+    font-weight: bold;
+    color: #ccc;
+    background-color: #633;
+    background: var(--search-button);
+    box-shadow: 0 1px 3px rgba(0,0,0,.5);
+    cursor: pointer;
+}
+#search-top-box-form input[type=submit]:hover,
+#search-top-box-form input[type=submit]:focus {
+    border: solid 1px #fff;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(255,255,255,.25);
+    background-color: var(--text-header-color);
+    background: var(--search-button-hover);
+    box-shadow: 0 1px 3px rgba(0,0,0,.8);
+}
+ 
+#login-status {
+    color: #aaa;
+    font-size: 90%;
+    z-index: 30;
+}
+#login-status a {
+    background: transparent;
+    color: #ddd;
+}
+#login-status ul a {
+    color: #700;
+    background: transparent;
+}
+ 
+#account-topbutton {
+    background: #ccc;
+    color: #700;
+}
+ 
+.printuser img.small {
+    margin-right: 1px;
+}
+ 
+#header h1 {
+    margin-left: 120px;
+    padding: 0;
+    float: left;
+    max-height: 95px;
+    margin-top: 0;
+    font-weight: bold;
+}
+#header h2 {
+    margin-left: 120px;
+    padding: 0;
+    clear: left;
+    float: left;
+    font-size: 150%;
+    max-height: 38px;
+    letter-spacing: 1px;
+}
+ 
+#header h1 a {
+    display: block;
+    margin: 0;
+    padding: 80px 0 25px;
+    margin-left: -3em !important;
+    padding-left: 3em !important;
+    line-height: 0px;
+    max-height: 0px;
+    color: #eee;
+    background: transparent;
+    font-family: 'Exo 2', sans-serif;
+    text-decoration: none;
+    text-shadow: 3px 3px 5px #000;
+    letter-spacing: 0.9px;
+    font-size: 160%;
+}
+ 
+#header h2 span {
+    display: block;
+    margin: 0;
+    padding: 19px 0;
+    line-height: 0px;
+    max-height: 0px;
+    font-weight: bold;
+    color: #63b2ec;
+    font-size: 90%;
+    text-shadow: 1px 1px 1px #000;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.8);
+}
+ 
+/* TOP MENU */
+#top-bar {
+    position: absolute;
+    z-index: 50;
+    top: 140px;
+    height: 21px;
+    line-height: 18px;
+    padding: 0;
+    z-index: 20;
+    font-size: 90%;
+}
+ 
+#top-bar ul {
+    float: right;
+}
+ 
+#top-bar li {
+    margin: 0;
+}
+ 
+#top-bar a {
+    color: #C0C0C0;
+    background: transparent;
+}
+ 
+#top-bar ul li {
+    border: 0;
+    position: relative;
+}
+ 
+#top-bar ul li ul {
+    border: solid 1px #666;
+    box-shadow: 0 2px 6px rgba(0,0,0,.5);
+    border-top: 0;
+}
+ 
+#top-bar ul li a {
+    border-left: solid 1px rgba(64,64,64,.1);
+    border-right: solid 1px rgba(64,64,64,.1);
+    text-decoration: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 1px;
+    max-height: 1px;
+    overflow: hidden;
+}
+ 
+#top-bar ul li.sfhover a,
+#top-bar ul li:hover a {
+    background: #302929;
+    color: #C0C0C0;
+    border-left: solid 1px var(--dark-border);
+    border-right: solid 1px var(--dark-border);
+}
+ 
+#top-bar ul li.sfhover ul li a,
+#top-bar ul li:hover ul li a {
+    border-width: 0;
+    width: 150px;
+    border-top: 1px solid var(--border-light);
+    line-height: 160%;
+    height: auto;
+    max-height: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #C0C0C0;
+}
+ 
+#top-bar ul li.sfhover a:hover,
+#top-bar ul li:hover a:hover {
+    background: #441919;
+    color: #C0C0C0;
+    text-decoration: none;
+}
+#top-bar ul li ul {
+    border-width: 0 1px 1px 1px;
+    width: auto;
+}
+#top-bar ul li ul li, #top-bar ul li ul li.sfhover,
+#top-bar ul li ul li, #top-bar ul li ul li:hover {
+    border-width: 0;
+}
+#top-bar ul li ul li a {
+    border-width: 0;
+    color:white;
+    transition:color 0.2s ease;
+}
+ 
+#top-bar ul li.sfhover a {
+    color: #C0C0C0;
+}
+ 
+#top-bar ul li ul a, #top-bar a:hover {
+    color: var(--highlight-hover);
+}
+ 
+.top-bar ul li:last-of-type ul {
+    right: 0;
+}
+ 
+/* IE7 HACK */
+#top-bar ul > li > ul {    
+    *margin-top: -4px;
+}
+ 
+/* CONTENT */
+.content-panel {
+    border: solid 1px #888880;
+border-radius: var(--element-border-radius)!important;
+background-color: #2b2b29;
+margin: 10px 0 15px;
+    margin-bottom: 15px;
+box-shadow: 3px 3px 6px #bbb;
+box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.1);
+}
+#main-content {
+    margin: 0 2em 0 22em;
+    padding: 1em;
+    position: relative;
+}
+ 
+/* ACTUALLY HIDE HIDDEN TAGS */
+#main-content .page-tags a[href^="/system:page-tags/tag/_"]
+{
+    display: none;
+}
+ 
+#breadcrumbs {
+    margin: -1em 0 1em;
+    font-weight: 85%;
+}
+ 
+/* YUI-TABS */
+.yui-navset .yui-content{
+    background-color: #f5f5f5;
+}
+.yui-navset .yui-nav a,
+.yui-navset .yui-navset-top .yui-nav a {
+    transition: background-color 0.5s ease;
+    background-color:var(--inactive-tab);
+    background-image:none;
+}
+.yui-navset .yui-nav .selected a,
+.yui-navset .yui-nav .selected a:focus, /* no focus effect for selected */
+.yui-navset .yui-nav .selected a:hover { /* no hover effect for selected */
+    background:var(--selected-tab);
+    background-image:none;
+    color:#fff;
+}
+.yui-navset .yui-nav a:hover,
+.yui-navset .yui-nav a:focus {
+    background:var(--hover-tab);
+    background-image: none;
+    text-decoration: none;
+}
+.yui-navset .yui-nav,
+.yui-navset .yui-navset-top .yui-nav {
+    border-color: var(--dark-border);
+}
+.yui-navset .yui-nav,
+.yui-navset .yui-navset-top .yui-nav {
+    border-color: var(--dark-border);
+}
+.yui-navset li {
+    line-height: normal;
+}
+ 
+/* FOOTER */
+#footer {
+    clear: both;
+    font-size: 77%;
+    background: #444;
+    color: #bbb;
+    margin-top: 15px;
+    padding: 3px 10px;
+}
+#footer .options {
+    visibility: visible;
+    display: block;
+    float: right;
+    width: 50%;
+    font-size: 100%;
+    text-align: right;
+}
+#footer a {
+    color: #fff;
+    background: transparent;
+}
+ 
+/* SOME NICE BOXES */
+div.sexy-box {
+    background: #eee;
+    border: 1px solid #ccc;
+    padding: 0 10px 12px;
+    margin: 7px 4px 12px;
+    overflow: hidden;
+}
+div.sexy-box div.image-container img {
+    margin: 5px;
+    padding: 2px;
+    border: 1px solid #999;
+}
+ 
+/* Custom page content classes */
+#page-content {
+    min-height: 720px;
+}
+ 
+.unmargined > p {
+    margin: 0;
+    line-height: 100%;
+    color:var(--text-header-color)
+}
+.content-panel {
+    border: solid 1px #888880;
+    border-radius: 10px;
+    background-color: #2b2b29;
+    margin: 10px 0 15px;
+    box-shadow: 3px 3px 6px #bbb;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.1);
+}
+.content-panel.standalone {
+    background: #fcfdfb;
+}
+.content-panel.series {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.content-panel.centered {
+    text-align: center;
+}
+.content-panel.left-column {
+    float: left;
+    width: 48%;
+}
+.content-panel.right-column {
+    float: right;
+    width: 48%;
+}
+ 
+.content-panel .panel-heading {
+    padding: 2px 10px;
+    color: #ccc;
+    font-size: 90%;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.35);
+}
+.content-panel .panel-heading > p,
+.content-panel .panel-footer > p {
+    margin: 0;
+}
+.content-panel .panel-body {
+    padding: 5px 10px;
+    background: #fff9f0 url(http://www.rpcauthority.wikidot.com/local--files/component:supremacy/panel-bg-gradient-reverse.png) bottom repeat-x;
+    /* box-shadow: 1px 2px 3px rgba(0,0,0,.2) inset */
+}
+.content-panel .panel-footer {
+    padding: 1px 10px;
+    color: #fffff0;
+    font-size: 80%;
+    font-weight: bold;
+    text-align: right;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+}
+.content-panel .panel-footer a {
+    color: #ffffff;
+}
+.content-panel .content-toc {
+    float: right;
+    padding: 0 20px;
+    background-color: #fff;
+    border: solid 1px #ccc;
+    border-radius: var(--element-border-radius);
+    margin: 20px 0 5px 5px;
+    white-space: nowrap;
+    box-shadow: inset 1px 2px 6px rgba(0,0,0,.15)
+}
+ 
+.alternate:nth-child(even) {
+    background-color: rgba(255,255,255,.9);
+}
+ 
+/* Page Rating Module Customizations (upvote / downvote system) */
+.page-rate-widget-box {
+    display: inline-block;
+    border-radius: 0px;
+    box-shadow: none;
+    margin-bottom: 10px;
+    margin-right: 2em;
+}
+.page-rate-widget-box .rate-points {
+    background-color: #221d1d!important;
+    border: 1px solid #666;
+    border-radius: 0px;
+    color: #c0c0c0;
+}
+.page-rate-widget-box .rateup,
+.page-rate-widget-box .ratedown {
+    background-color: #221d1d;
+    border-top: solid 1px #666;
+    border-bottom: solid 1px #666;
+    border-radius: 0px;
+    font-weight: bold;
+}
+.page-rate-widget-box .rateup a,
+.page-rate-widget-box .ratedown a {
+    background: #221d1d;
+    color: #5192e1;
+    padding: auto;
+    margin: 0 0px;
+    font-weight: bold;
+}
+.page-rate-widget-box .rateup a:hover,
+.page-rate-widget-box .ratedown a:hover {
+    transition: background 0.5s ease;
+    background: #c0c0c0;
+    color: #221d1d;
+    text-decoration: none;
+}
+.page-rate-widget-box .cancel {
+    background-color: #221d1d;
+    border: 1px solid #666;
+    border-radius: 0px;
+}
+.page-rate-widget-box .cancel a {
+    background: #221d1d;
+    color: #c0c0c0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.page-rate-widget-box .cancel a:hover {
+    transition: background 0.5s ease;
+    border-radius: 0px;
+    background: #c0c0c0;
+    color: #221d1d;
+    text-decoration: none;
+}
+ 
+/* Fixes for multi-line page tags */
+ 
+#main-content .page-tags {
+    margin: 1em 0 0;
+    padding: 0;
+}
+#main-content .page-tags span {
+    display: inline-block;
+    padding: 0;
+    max-width: 60%;
+}
+#main-content .page-tags a {
+    display: inline-block;
+    white-space: nowrap;
+}
+ 
+/* Wikiwalk Navigation */
+.footer-wikiwalk-nav {
+    font-weight: bold;
+    font-size: 75%;
+}
+/* Pop-up text boxes */
+ 
+.modal-body > img {
+    background: none!important;
+}
+ 
+.modal-body {
+    background-color: rgba(27,33,37,0.34)!important;
+}
+ 
+.modal-header, .owindow {
+    background-color: rgba(13,16,17,0.54)!important;    
+}
+.owindow {
+    border: 1px solid #666!important;
+}
+ 
+/* Ruby by Nanimono Demonai */
+ 
+.ruby, ruby {
+    display:inline-table;
+    text-align:center;
+    white-space:nowrap;
+    line-height:1;
+    height:1em;
+    vertical-align:text-bottom;
+}
+ 
+.rt, rt {
+    display:table-header-group;
+    font-size:0.6em;
+    line-height:1.1;
+    text-align:center;
+    white-space:nowrap;
+}
+ 
+/* Keycap */
+ 
+.keycap {
+    border: 1px solid;
+    border-color: #ddd #bbb #bbb #ddd;
+    border-bottom-width: 2px;
+    -moz-border-radius: var(--element-border-radius);
+    -webkit-border-radius: var(--element-border-radius);
+    border-radius: var(--element-border-radius);
+    background-color: #f9f9f9;
+    padding: 1px 3px;
+    font-family: inherit;
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+ 
+/* tag style */
+ 
+.tags {
+display: inline-block;
+margin: 0 0 0 5px;
+padding: 3px 5px 3px 0px;
+height: 13px;
+line-height: 13px;
+font-size: 11px;
+background: #666;
+color: #ccc;
+text-decoration: none;
+-moz-border-radius-bottomright: 4px;
+-webkit-border-bottom-right-radius: 4px;
+border-bottom-right-radius: 4px;
+-moz-border-radius-topright: 4px;
+-webkit-border-top-right-radius: 4px;
+border-top-right-radius: 4px;
+}
+ 
+.tags:before {
+content: "";
+padding: 0px 1px 3px 1px;
+float: left;
+position: relative;
+top: -3px;
+left: -10px;
+width: 0;
+height: 0;
+border-color: transparent #666 transparent transparent;
+border-style: solid;
+border-width: 8px 8px 8px 0px;
+}
+ 
+.tags:after {
+content: "";
+position: relative;
+top: 4.5px;
+left: -8px;
+float: left;
+width: 4px;
+height: 4px;
+-moz-border-radius: 2px;
+-webkit-border-radius: 2px;
+border-radius: 2px;
+background: #fff;
+-moz-box-shadow: -1px -1px 2px #004977;
+-webkit-box-shadow: -1px -1px 2px #333;
+box-shadow: -1px -1px 2px #333;
+}
+ 
+.page-tags span {
+    border-top: 1px solid #666!important;
+}
+ 
+/* Display Black Block by Nanimono Demonai */
+.bblock {
+    color: #000000;
+    background-color:#000000;
+    transition: 2s;
+    text-decoration: none;
+}
+ 
+.bblock:hover {
+    background-color:#000000;
+    color: #006600;
+    text-decoration: none;
+}
+ 
+.dblock {
+    color:#000000;
+    background-color:#000000;
+    transition: 2s;
+    text-decoration: none;
+}
+ 
+.dblock:hover {
+    background-color:transparent;
+    text-decoration: none;
+}
+ 
+/*
+    2011-11-13 Minobe Hiroyuki @ Marguerite Site
+    www.marguerite.jp/Nihongo/WWW/CSSTips/EmphasizeDots-CSS3.html
+    Edited for the SCP Foundation by Nanimono_Demonai
+*/
+ 
+.emph {
+    text-emphasis-style: dot ;
+    -webkit-text-emphasis-style: dot ;
+}
+ 
+/* ### Navigation Elements ################## */
+/* ###### Account ########################### */
+#printuser{
+    color:#ccc;
+    background-color:transparent;
+}
+ 
+#login-status a{
+    color: #ccc;
+    background-color: transparent;
+}
+ 
+#login-status a:hover{
+    color: #84b7f5;
+    background-color:transparent;
+}
+#account-options {
+    background-color:#221d1d;
+    border: 1px solid #666;
+}
+ 
+#account-options li a {
+    color: #5192e1;
+}
+ 
+#account-options li a:hover {
+    color: #84b7f5;
+}
+ 
+#account-options a, a#account-topbutton{
+    color: #000;
+    font-weight: normal;
+    background-color: transparent;
+}
+ 
+#account-options #account-options, a#account-topbutton{
+    background-color: transparent;
+    border-style: none;
+    color: #ccc;
+}
+ 
+sup {
+vertical-align: top;
+position: relative;
+top: -0.5em;
+}
+ 
+body {
+    /*background: #141518 url("http://www.rpc-wiki.net/local--files/component:icons/background-tile.png") repeat !important;*/
+    background: linear-gradient(to bottom, #292b30, #1d1e21)!important;
+    color: #C0C0C0!important;
+  }
+/*
+@media (max-width: 1635px) {
+body {
+    color: #ccc!important;
+}
+}
+ 
+@media (min-width: 1635px) {
+body {
+    color: #bbb!important;
+}
+}
+*/
+ #content-wrap {
+    position: relative;
+    margin: 2em auto 0;
+    max-width: 1040px;
+    min-height:1300px;
+    height: auto !important;
+    height: 1500px;
+}
+ 
+ul {
+    list-style: square;
+}
+ 
+#top-bar ul {
+    /* list-style-image: none; /* IE ONLY! IF list-style-image IS SET */
+    margin-top: 5px;
+    }
+ 
+ h3, h4, h5, h6, h7 {
+    margin: 0.5em 0 0.4em;
+    padding: 0;
+    letter-spacing: 1px;
+}
+  #page-title
+  {
+    color: #2766bb ;
+    font-weight: bold;
+    padding: 0 0 0.25em;
+    margin: 0 0 0.6em;
+    border-color: #bbb;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+  }
+ 
+div#container-wrap {
+    background: url(http://www.rpc-wiki.net/local--files/_icondump/darkHeader.png) top left repeat-x;
+}
+ 
+  blockquote
+  {
+    border: 1px solid #666;
+    color: #ccc;
+    background-color: rgba(0,0,0,0.15);
+  }
+ 
+  .content-panel.standalone
+  {
+    background: #221d1d!important;
+  }
+ 
+  .content-panel
+  {
+    border: 1px solid #666;
+    margin: 10px 0 15px;
+    box-shadow: none;
+  }
+ 
+  .content-panel .content-toc
+  {
+    background: #221d1d!important;
+    border: 1px solid #666;
+    margin: 10px 0 15px;
+    box-shadow: none;
+  }
+/* Standard Image Block */
+.scp-image-block {
+    border: solid 1px #666;
+    box-shadow: none;
+    width: 300px;
+}
+ 
+.scp-image-block.block-right {
+        float: right;
+    clear: right;
+    margin: 0 2em 1em 2em;
+}
+ 
+.scp-image-block.block-left {
+    float: left;
+    clear: left;
+    margin: 0 2em 1em 0;
+}
+ 
+.scp-image-block.block-center {
+    margin-right: auto;
+    margin-left: auto;
+}
+.scp-image-block img {
+    border: 0;
+    width: 300px;
+}
+.scp-image-block .scp-image-caption {
+    background-color: #221d1d;
+    border-top: solid 1px #666;
+    padding: 2px 0;
+    font-size: 80%;
+    font-weight: bold;
+    text-align: center;
+    width: 300px;
+}
+.scp-image-block > p {
+    margin: 0;
+}
+.scp-image-block .scp-image-caption > p {
+    margin: 0;
+    padding: 0 10px;
+}
+ 
+  .content-panel .panel-heading
+  {
+    background-color: #221d1d;
+    color: #ccf!important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .35);
+  }
+ 
+  .content-panel .panel-body
+  {
+    background: #221d1d;
+  }
+ 
+  .content-panel .panel-footer
+  {
+    background-color: #221d1d;
+    color: #ccf!important;
+    font-size: 80%;
+    font-weight: bold;
+    text-align: right;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+  }
+ 
+  .pager .current
+  {
+    background-color: #221d1d;
+    color: #ccc!important;
+  }
+ 
+  .pager .target
+  {
+    padding: 0 7px#21262d!important;
+  }
+ 
+  table.wiki-content-table th
+  {
+    background-color: #221d1d;
+    border: 1px solid #666;
+    color: #ccc;
+    padding: 0.3em 0.7em;
+  }
+ 
+  table.wiki-content-table td
+  {
+    background-color: #221d1d;
+    border: 1px solid #666;
+    padding: 0.3em 0.7em;
+    color: #ccc;
+  }
+ 
+  .hovertip
+  {
+    border: 1px solid #666!important;
+    background-color: #221d1d!important;
+    color: #ccc!important;
+  }
+ 
+  .code
+  {
+    background-color: #ccc;
+    border: 1px dashed #666;
+  }
+ 
+  .content-panel .content-type-title
+  {
+    font-size: 120%;
+    font-weight: bold;
+    padding: 5px 20px;
+    background-color: #221d1d!important;
+    color: #fff;
+    border-radius: 0;
+    box-shadow: none;
+}
+ 
+  #toc
+  {
+    color: #ccc!important;
+    background-color: #221d1d!important;
+    border: 1px solid #666;
+  }
+ 
+}
+ /* Page Rating Module Customizations (5 star system) */
+.rate-module-counter p {
+    margin: 0;
+}
+ 
+.rateContainer{
+width: 100%;
+text-align: right;
+height: 30px
+}
+ 
+.tableStyle{
+background-color: #221d1d;
+margin-right: 2em;
+display: inline-block;
+border-collapse: collapse;
+border-spacing: 0px;
+border: 1px solid #666;
+border-radius: 0px;
+}
+ 
+.rateStyle{
+padding: 0;
+box-shadow: none;
+margin-right: 2em;
+}
+ 
+.starStyle{
+display: inline-block;
+padding: 2px 4px 0px 4px;
+margin: 0;
+background-color: #221d1d;
+box-shadow: none;
+}
+ 
+.cellStyle{
+display: inline-block;
+padding: 1px 4px 0px 4px;
+margin: 0;
+background-color: #221d1d;
+border-radius: 0;
+height: 20px;
+border-left: 1px solid #666;
+}
+ 
+.translationStyle{
+padding-left: 5px;
+padding-right: 5px;
+margin: 0;
+background-color: #221d1d;
+}
+ 
+  img[src="/common--images/jquery-raty/star-on.png"]
+  {
+    content: url(    http://www.rpc-wiki.net/local--files/component:icons/star-on.png);
+  }
+ 
+  img[src="/common--images/jquery-raty/star-half.png"]
+  {
+    content: url(    http://www.rpc-wiki.net/local--files/component:icons/star-half.png);
+  }
+ 
+  img[src="/common--images/jquery-raty/star-off.png"]
+  {
+    content: url(    http://www.rpc-wiki.net/local--files/component:icons/star-off.png);
+  }
+ 
+.yui-navset .yui-content{
+    background-color: #221d1d;
+}
+.yui-navset .yui-nav a,
+.yui-navset .yui-navset-top .yui-nav a {
+    background-color:#221d1d;
+    color:#ccc;
+    border-color: #666;
+    background-image: url(../images/yuitabs.png);
+}
+.yui-navset .yui-nav .selected a,
+.yui-navset .yui-nav .selected a:focus, /* no focus effect for selected */
+.yui-navset .yui-nav .selected a:hover { /* no hover effect for selected */
+    background:#2766bb url(../images/yuitabs.png) repeat-x left -1400px; /* selected tab background */
+    color:#ccc;
+}
+.yui-navset .yui-nav a:hover,
+.yui-navset .yui-nav a:focus {
+    background:#2766bb url(../images/yuitabs.png) repeat-x left -1300px;
+    text-decoration: none;
+}
+.yui-navset .yui-nav,
+.yui-navset .yui-navset-top .yui-nav {
+    border-color: #1b2c47;
+}
+ 
+.yui-navset li {
+    line-height: normal;
+}
+ 
+/*---BUTTON RECOLORING---*/
+#h-perpage, .optionstd a, .new-post .btn {
+    border: 1px solid #666!important;  
+    background-color: #752d2d!important;
+    color: white!important;
+}
+ 
+#h-perpage:hover, .optionstd a:hover, .new-post .btn:hover {
+    border: 1px solid #666!important;  
+    background-color: #221818!important;
+    color: white!important;
+    text-decoration: none!important;
+}
+ 
+#history-form-1 .btn-sm,
+.well .btn-sm,
+.change-textarea-size a,
+.buttons .btn-small,
+.action-area .btn-default,
+.action-area .btn-primary,
+.col-lg-10 .form-control,
+.form-actions .btn-danger,
+.buttons .btn-default,
+.target a,
+.buttons .btn-danger,
+#edit-cancel-button,
+#edit-save-button,
+.button-close-message,
+.button-close-window,
+.button-cancel,
+.button-insert-code,
+#wd-ed-codewizard-type,
+#wd-ed-imagewizard-position,
+#wd-ed-imagewizard-uri,
+#wd-ed-imagewizard-byuri .button,
+#wd-ed-imagewizard-flickr,
+#wd-ed-imagewizard-byflickr .button,
+.query-area .button,
+.button-close,
+.button-rename,
+.button-no\,-cancel,
+.button-yes\,-delete,
+#file-upload-form .btn-primary,
+.button-move,
+#action-area .buttons .btn-primary,
+#edit-page-form .buttons .btn-info,
+#view-diff-div .button,
+.button-yes\,-revert,
+.modal-footer .btn-danger,
+.modal-footer .btn-default,
+.modal-footer .btn-primary,
+#mba-apply,
+.yui-content .button,
+.btn-warning {
+    border: 1px solid #666!important;  
+    background-color: #752d2d!important;
+    color: white!important;    
+}
+ 
+#history-form-1 .btn-sm:hover,
+.well .btn-sm:hover,
+.change-textarea-size a:hover,
+.buttons .btn-small:hover,
+.action-area .btn-default:hover,
+.action-area .btn-primary:hover,
+.col-lg-10 .form-control:hover,
+.form-actions .btn-danger:hover,
+.buttons .btn-default:hover,
+.target a:hover,
+.buttons .btn-danger:hover,
+#edit-cancel-button:hover,
+#edit-save-button:hover,
+.button-close-message:hover,
+.button-close-window:hover,
+.button-cancel:hover,
+.button-insert-code:hover,
+#wd-ed-codewizard-type:hover,
+#wd-ed-imagewizard-position:hover,
+#wd-ed-imagewizard-uri:hover,
+#wd-ed-imagewizard-byuri .button:hover,
+#wd-ed-imagewizard-flickr:hover,
+#wd-ed-imagewizard-byflickr .button:hover,
+.query-area .button:hover,
+.button-close:hover,
+.button-rename:hover,
+.button-no\,-cancel:hover,
+.button-yes\,-delete:hover,
+#file-upload-form .btn-primary:hover,
+.button-move:hover,
+#action-area .buttons .btn-primary:hover,
+#edit-page-form .buttons .btn-info:hover,
+#view-diff-div .button:hover,
+.button-yes\,-revert:hover,
+.modal-footer .btn-danger:hover,
+.modal-footer .btn-default:hover,
+.modal-footer .btn-primary:hover,
+#mba-apply:hover,
+.yui-content .button:hover,
+.btn-warning:hover {
+    border: 1px solid #666!important;  
+    background-color: #221818!important;
+    color: white!important;    
+    text-decoration: none!important;
+}
+ 
+#history-subarea a{
+    text-transform: capitalize;
+}
+ 
+#history-subarea a:hover{
+    background: none !important;
+}
+ 
+.highlight td {
+background-color: #121314;
+}
+ 
+.checkbox input,
+#rev-type-title,
+#rev-type-all,
+#rev-type-source,
+#rev-type-move,
+#rev-type-tags,
+#rev-type-meta,
+#rev-type-files,
+.radio, #\31 46126552,
+#rev-type-new,
+#rev-category,
+#rev-perpage {
+    filter: invert(100%);
+}
+ 
+#rev-type-new,
+#rev-category,
+#rev-perpage{
+    outline: 0;
+}
+ 
+.btn-large, #edit-meta-addbutton .btn-primary, #rename-show-backlinks {
+    padding: 5px;
+}
+ 
+a.action-area-close.btn.btn-danger {
+    background: none!important;
+}
+ 
+.wd-editor-toolbar-panel div > ul {
+position: relative!important;
+top: 3px;
+filter: opacity(75%);
+}
+ 
+.wd-editor-toolbar-panel div > ul:hover {
+filter: opacity(100%);
+}
+ 
+/*---FORUM STUFF---*/
+ 
+/* text boxes you type in */
+#thread-description,
+#np-text,
+#post-edit,
+.field-header .form-wiki,
+.field-content .form-wiki,
+.text.form-control,
+#file-comments,
+.form .text{
+    background-color: #752d2d!important;
+    border: 1px solid #2c3340!important;
+    color: #ccc!important;
+}
+ 
+.forum-thread-box .description-block {
+    padding: .5em 1em;
+    border-radius: var(--element-border-radius);
+    Border: solid 1px #666!important;
+    background-color: #221d1d!important;
+    color: #ccc!important;
+}
+ 
+.well {
+    padding: .5em 1em;
+    border-radius: var(--element-border-radius);
+    background-color: #221d1d!important;
+    color: #ccc!important;
+    border: solid 1px #666!important;
+}
+ 
+.thread-container .post .head {
+    padding: 0.5em 1em;
+    background-color: rgba(0,0,0,0.21)!important;
+    box-shadow: inset 2px 3px 6px rgba(0,0,0,.15);
+    border-radius: 5px 5px 0 0;
+}
+ 
+.folded .short {
+    color: #ccc;
+    background-color: rgba(32,43,54,0.34)!important;
+}
+ 
+.forum-group table td {
+    background: none !important;
+    border: none !important;
+    padding: 5px 1px;
+}
+ 
+.forum-group table td.name .title {
+    font-weight: bold;
+    margin-left: 5px;
+}
+ .action-area {
+    border: 1px dashed #666!important;
+    background: none!important;
+}
+.thread-container .well {
+    border: 1px dashed #666!important;
+    background: none!important;
+}
+ 
+.forum-category-box .table {
+    border: none!important;
+}
+ 
+.forum-group table td.name .description {
+    color: #ccc!important;
+    font-size: 87%;
+    margin-left: 5px;
+}
+ 
+.forum-category-box table td {
+    padding: 5px 10px;
+    border: none !important;
+    background: none !important;
+}
+ 
+ #edit-page-textarea, #edit-page-title, #edit-page-comments, .query-area .text, #membership-by-apply-text, .yui-content .text {
+    background-color: #752d2d!important;
+       border: 1px solid #2c3340!important;
+    color: #ccc!important;
+ 
+}
+ 
+.alert-info {
+    background: none!important;
+       border: 1px dashed #666!important;
+    color:
+}
+ 
+.forum-start-box div.head {
+    background-color: #441919!important;    
+    border: none!important;
+}
+ 
+.forum-start-box .head .title {
+    text-align: center!important;
+}
+.head .title {
+    color: rgb(181,181,181);
+}
+ 
+.head .description {
+    color: rgb(181,181,181);
+    text-align: center;
+}
+ 
+.forum-group table {
+border-collapse: collapse;
+border-spacing: 1px;
+}
+ 
+.forum-group .name .description {
+font-size: 0.9em !important;
+padding: 3px 0;
+}
+ 
+.forum-group .head .title {
+font-size: 1.1em;
+}
+ 
+.forum-group .head .description {
+text-align: center;
+}
+ 
+.forum-category-box table {
+border-collapse: collapse;
+}
+ 
+.forum-category-box table .head td {
+background: #441919 !important;
+font-size: 1.1em !important;
+font-weight: bold;
+}
+ 
+.forum-category-box table tr:nth-child(even), .forum-group table tr:nth-child(even) {
+background: #1a1c1e !important;
+}
+ 
+.forum-category-box table tr:nth-child(odd), .forum-group table tr:nth-child(odd) {
+background: #221d1d !important;
+}
+ 
+/* Hide Forum Signatures */
+.signature {
+    display:none !important;
+}
+ 
+/* recolor “show-changes” highlights */
+del {
+    background-color: rgba(255,123,123,0.47)!important;
+}
+ins {
+    background-color: rgba(140,255,129,0.47)!important;    
+}
+ 
+/* recolor code boxes */
+.code {
+    background-color: #111!important;
+}
+ 
+.revisions .active td {
+    background: none !important;
+}
+ 
+.revisions td{
+    padding: 2px !important;
+}
+ 
+.revisions .active{
+    background-color: #3d3d3d;
+}
+ 
+.long > .options a,
+.head .btn,
+.folded .btn-xs,
+.changes a {
+    color: var(--highlight-color) !important;
+}
+ 
+.long > .options a:hover,
+.head .btn:hover,
+.folded .btn-xs:hover,
+.changes a:hover{
+    color: var(--highlight-hover) !important;
+}
+ 
+.changes{
+    color: #c0c0c0 !important;
+}
+ 
+.changes-list-item .comments{
+    color: #a0a0a0;
+}
+ 
+.changes-list-item:hover{
+    background: #333;
+}
+ 
+.statistics {
+    color: #c0c0c0 !important;
+}
+ 
+.warning-block {
+    background: #e2e25c;
+}
+ 
+.license-area {
+    color: #c0c0c0 !important;
+}
+ 
+#h-perpage {
+    outline: none !important;
+}
+ 
+.content-type-title {
+    box-shadow: none !important;
+    border-bottom: 1px solid #666;
+    text-align: center;
+}
+ 
+.content-type-description-2{
+    padding-top: 0.5em !important;
+}
+ 
+.list-pages-box table{
+    padding-bottom: 0.5em !important;
+}
+ 
+.content-type-description-2 tr {
+    background: none !important;
+}
+ 
+.page-history td input{
+    filter: invert(97%);
+}
+ 
+/* tooltip localization */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+ 
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  position: absolute;
+  z-index: 1;
+}
+ 
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+ 
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+ 
+.tooltip .tooltiptext {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+ 
+.tooltip:hover .tooltiptext {
+  opacity: 1;
+}
+ 
+.tooltipblue {
+  position: relative;
+  display: inline-block;
+}
+ 
+.scp-image-caption-top .tooltipblue img{
+    filter: invert(91%) hue-rotate(150deg);
+}
+ 
+.tooltipblue .tooltiptextblue {
+  visibility: hidden;
+  width: 120px;
+  background-color: #2476db;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+   width: 120px;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+  position: absolute;
+  z-index: 1;
+}
+ 
+.tooltipblue:hover .tooltiptextblue {
+  visibility: visible;
+}
+ 
+.tooltipblue .tooltiptextblue::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #2476db transparent transparent transparent;
+}
+ 
+.tooltipblue .tooltiptextblue {
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+ 
+.tooltipblue:hover .tooltiptextblue {
+  opacity: 1;
+}
+#action-area-top .preview-message {
+    border: #000 1px solid;
+    background-color: #333;
+    color: c0c0c0;
+}
+#edit-page-form
+{
+    margin-left: -250px;
+    margin-right: -250px;
+}
+ 
+@-moz-document regexp("(https?://)?rpcauthority.wdfiles.com/local--html/rpc-616/890977b1c70d1ed3f3d224119777f2f6b6012150-687018274243063250/(www.rpcauthority.wikidot.com|www.rpc-wiki.com|www.rpc-wiki.net)/")
